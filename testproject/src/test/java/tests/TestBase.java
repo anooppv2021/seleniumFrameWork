@@ -1,8 +1,10 @@
 package tests;
 
-import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.util.Date;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.ITestResult;
@@ -18,8 +20,9 @@ import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 public class TestBase {
 
 	public static WebDriver driver = null;
+	public static ExtentTest logger = null;
 	ExtentReports extent;
-	ExtentTest logger;
+	// ExtentTest logger;
 	ExtentHtmlReporter htmlReporter;
 
 	@BeforeSuite
@@ -35,15 +38,22 @@ public class TestBase {
 		// To open google
 		driver.get("https://www.google.com/");
 
-		extent = new ExtentReports();
-		htmlReporter = new ExtentHtmlReporter(System.getProperty("user.dir") + "\\test-output\\Extentreport.html");
-		htmlReporter.loadConfig("D:\\WorkSpace\\testproject\\test-output\\extent-config.xml");
-		extent.attachReporter(htmlReporter);
+		// extent report
+		String dateName = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
 
+		htmlReporter = new ExtentHtmlReporter(
+				System.getProperty("user.dir") + "/test-output/Extentreport" + dateName + ".html");
+
+		extent = new ExtentReports();
+		extent.attachReporter(htmlReporter);
 		extent.setSystemInfo("Host Name", "TestMachine");
 		extent.setSystemInfo("Environment", "QA");
 		extent.setSystemInfo("User Name", "Anoop");
-		
+
+		htmlReporter.loadConfig("D:\\WorkSpace\\testproject\\test-output\\extent-config.xml");
+		String css = ".r-img{width: 50%;}";
+		htmlReporter.config().setCSS(css);
+		logger = extent.createTest("first test");
 
 	}
 
@@ -54,9 +64,11 @@ public class TestBase {
 			logger.log(Status.FAIL, "Test Case Failed is " + result.getThrowable());
 		} else if (result.getStatus() == ITestResult.SKIP) {
 			logger.log(Status.SKIP, "Test Case Skipped is " + result.getName());
+		} else if (result.getStatus() == ITestResult.SUCCESS) {
+			logger.log(Status.PASS, "Test Case Passes is " + result.getName());
 		}
-		// ending test
-		// endTest(logger) : It ends the current test and prepares to create HTML report
+
+		// endTest(logger)
 		extent.flush();
 	}
 
