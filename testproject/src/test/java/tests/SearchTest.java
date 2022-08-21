@@ -7,12 +7,12 @@ import pages.HomePage;
 
 public class SearchTest extends TestBase {
 
-	@Test
-	public void init() throws Exception {
+	@Test(priority = 1, enabled = true, testName = "To verify google search", description = "Google")
+	public void googleSearch() throws Exception {
 
 		HomePage homepage = PageFactory.initElements(driver, HomePage.class);
-		homepage.setSearchText();
-		homepage.clickOnSearchButton();
+		homepage.GoogleSearchText();
+//		homepage.clickOnSearchButton();
 
 	}
 

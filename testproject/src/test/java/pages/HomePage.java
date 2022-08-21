@@ -2,11 +2,15 @@ package pages;
 
 import static org.junit.Assert.assertTrue;
 
+import java.time.Duration;
+
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.aventstack.extentreports.Status;
 
@@ -15,9 +19,11 @@ import tests.TestBase;
 public class HomePage extends TestBase {
 
 	WebDriver driver;
+	WebDriverWait wait;
 
 	public HomePage(WebDriver driver) {
 		this.driver = driver;
+		wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
 	}
 
@@ -27,19 +33,26 @@ public class HomePage extends TestBase {
 	@FindBy(how = How.XPATH, using = "//input[@type='btnK']")
 	WebElement searchButton;
 
-	// This method is to set Search text in the search text box
-	public void setSearchText() throws InterruptedException {
+	// This method is to do google Search
+	public void GoogleSearchText() throws InterruptedException {
 		searchTextBox.sendKeys("Automation");
-		logger.log(Status.INFO, "passed");
-		assertTrue(true);
 
-	}
-
-	// This method is to click on Search Button
-	public void clickOnSearchButton() throws InterruptedException {
-		// searchButton.click();
 		searchTextBox.sendKeys(Keys.ENTER);
-		assertTrue(true);
-		Thread.sleep(4000);
+		wait.until(ExpectedConditions.titleContains("Automation"));
+
+		String title = driver.getTitle();
+
+		if (title.contains("Automation")) {
+
+			logger.log(Status.INFO, "Test Passed");
+			assertTrue(true);
+
+		} else {
+
+			logger.log(Status.INFO, "Test Failed");
+			assertTrue(false);
+
+		}
 	}
+
 }

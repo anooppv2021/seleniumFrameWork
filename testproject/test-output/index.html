@@ -51,7 +51,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\mail2\AppData\Local\Temp\testng-eclipse--414617074\testng-customsuite.xml</span>
+                    <span>C:\Users\mail2\AppData\Local\Temp\testng-eclipse--426068919\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -104,7 +104,7 @@
                     <div class="method-list-content passed suite-Default_suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="tests.SearchTest" class="method navigator-link" hash-for-method="init">init</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="tests.SearchTest" class="method navigator-link" hash-for-method="googleSearch">googleSearch</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -127,9 +127,11 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="init">
-                  </a> <!-- init -->
-                  <span class="method-name">init</span>
+                  <a name="googleSearch">
+                  </a> <!-- googleSearch -->
+                  <span class="method-name">googleSearch</span>
+                  <em>
+(Google)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -137,7 +139,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\mail2\AppData\Local\Temp\testng-eclipse--414617074\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\mail2\AppData\Local\Temp\testng-eclipse--426068919\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -188,14 +190,14 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'init')
+data.setCell(0, 1, 'googleSearch')
 data.setCell(0, 2, 'tests.SearchTest')
-data.setCell(0, 3, 5841);
+data.setCell(0, 3, 1285);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 5 seconds</span>
+              <span class="suite-total-time">Total running time: 1 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -226,17 +228,25 @@ return data;
                 <span class="method-name">initialize</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-suite before -->
+              <div class="configuration-method before">
+                <span class="method-name">logging(public void tests.SearchTest.googleSearch() throws java.lang.Exception)</span>
+                <span class="method-start">159 ms</span>
+              </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">init</span>
-                <span class="method-start">3019 ms</span>
+                <span class="method-name">googleSearch</span>
+                <span class="method-start">3236 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">getResult([TestResult name=init status=SUCCESS method=SearchTest.init()[pri:0, instance:tests.SearchTest@3e11f...)</span>
-                <span class="method-start">8862 ms</span>
+                <span class="method-name">screenShot([TestResult name=googleSearch status=SUCCESS method=SearchTest.googleSearch()[pri:1, instance:tests....)</span>
+                <span class="method-start">4524 ms</span>
               </div> <!-- configuration-method after -->
+              <div class="configuration-test after">
+                <span class="method-name">endReport</span>
+                <span class="method-start">4889 ms</span>
+              </div> <!-- configuration-test after -->
               <div class="configuration-suite after">
                 <span class="method-name">TeardownTest</span>
-                <span class="method-start">9098 ms</span>
+                <span class="method-start">4993 ms</span>
               </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
