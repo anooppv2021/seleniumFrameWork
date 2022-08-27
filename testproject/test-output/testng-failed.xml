@@ -7,8 +7,10 @@
         <methods>
           <include name="initialize"/>
           <include name="TeardownTest"/>
-          <include name="getResult"/>
-          <include name="init"/>
+          <include name="logging"/>
+          <include name="googleSearch"/>
+          <include name="screenShot"/>
+          <include name="endReport"/>
         </methods>
       </class> <!-- tests.SearchTest -->
     </classes>

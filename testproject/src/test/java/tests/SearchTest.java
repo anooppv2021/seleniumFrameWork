@@ -12,7 +12,6 @@ public class SearchTest extends TestBase {
 
 		HomePage homepage = PageFactory.initElements(driver, HomePage.class);
 		homepage.GoogleSearchText();
-//		homepage.clickOnSearchButton();
 
 	}
 
